@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Meu Portfólio</title>
+</head>
+<body>
+    <div class="particulas"></div>
+
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contatos" class="menu-link">Contato</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+            <img src="imagens/minha foto.jpg" alt="Foto de Arthur Morais" class="foto-perfil">
+            <h1>Arthur Morais</h1>
+            <p class="cabecalho-sub-titulo">Estudante da CESAR school de Ciência da Computação</p>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Sou estudante da área de Ti e estou cursando o primeiro(1) período de Ciências da computação na CESAR school. Domino as linguagens de Python, JavaScript, HTML e CSS.
+                 Gosto de desafios e inovação, estou sempre buscando melhorias e novas formas de me atualizar a tudo.
+            </p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo"> Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="imagens/Projeto01.jpg" alt="projeto 1(A.P.G)" class="projetos-imagem">
+                
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Projeto 1: Atirei o pau no gato(A.P.G)</h3>
+                    <p class="paragrafo-projetos">Um detector de roubo de energia.</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="imagens/ProjetoFP.png" alt="projeto FP Organização de festa" class="projetos-imagem">
+                
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Projeto FP: Organização de festa</h3>
+                    <p class="paragrafo-projetos">Codigo de um Projeto de FP Organização de festas.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulo">Entre em contatos</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua mensagem" id="mensagem"></textarea>
+            </div>
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault()
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5581999781730'
+
+            const texto = `Olá! Me chamo ${nome} , ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}/?text=${msgFormatada}`
+
+            console.log(url)
+
+            window.open(url,'_blank')
+        }    
+
+    </script>
+
+</body>
+</html>
